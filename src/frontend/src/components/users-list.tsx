@@ -105,8 +105,25 @@ export const UsersList = component$(() => {
                                     <td><input name='movie' type="text" value={form.movie} onInput$={handleInputChange} /></td>
                                     <td><input name='duration' type="text" value={form.duration} onInput$={handleInputChange} /></td>
                                     <td><input name='director' type="text" value={form.director} onInput$={handleInputChange} /></td>
-                                    <td><input name='oscar' type="text" value={form.oscar} onInput$={handleInputChange} /></td>
-                                    <td><input name='genre' type="text" value={form.genre} onInput$={handleInputChange} /></td>
+                                    <td><input name='oscar' type="number" value={form.oscar} onInput$={handleInputChange} /></td>
+                                    <td><select name='genre' value={form.genre} onInput$={handleInputChange}>
+                                        <option value="Action">Action</option>
+                                        <option value="Comedy">Comedy</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Fantasy">Fantasy</option>
+                                        <option value="Horror">Horror</option>
+                                        <option value="Mystery">Mystery</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Thriller">Thriller</option>
+                                        <option value="Western">Western</option>
+                                        <option value="Adventure">Adventure</option>
+                                        <option value="Crime and mystery">Crime and mystery</option>
+                                        <option value="Historical">Historical</option>
+                                        <option value="Satire">Satire</option>
+                                        <option value="Science fiction">Science fiction</option>
+                                        <option value="Cyberpunk">Cyberpunk</option>
+                                        <option value="Musical">Musical</option>
+                                        </select></td>
                                     <td><input name='release_date' type="date" value={form.release_date} onInput$={handleInputChange} /></td>
                                     <td><button class="bg-green-600" type='submit'><i class="fa-solid fa-check"></i>Aceptar</button></td>
                                     <td><span class="button bg-red-600" style={`visibility: ${addOrModify.value === 'Añadir' ? 'hidden' : 'visible'}`} onClick$={() => { addOrModify.value = "Añadir"; cleanForm() }}><i class="fa-solid fa-xmark"></i>Cancelar</span></td>

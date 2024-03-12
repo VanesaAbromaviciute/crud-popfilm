@@ -25,7 +25,7 @@ export const addMovie = async (user: Movies) => {
                 },
                 body: JSON.stringify(user),
             })
-    } catch (error) {                               
+    } catch (error) {
         console.error(error)
     }
 
@@ -42,7 +42,7 @@ export const updateMovie = async (movie: string, movies: Movies) => {
                 },
                 body: JSON.stringify(movies),
             })
-    } catch (error) {                               
+    } catch (error) {
         console.error(error)
     }
 
@@ -55,7 +55,7 @@ export const deleteMovie = async (movie: string) => {
             {
                 method: 'DELETE',
             })
-    } catch (error) {                               
+    } catch (error) {
         console.error(error)
     }
 
