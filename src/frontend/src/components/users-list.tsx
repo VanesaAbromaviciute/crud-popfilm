@@ -135,8 +135,8 @@ export const UsersList = component$(() => {
                 <button class={Movies.value === 'Todos' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Todos'; store.movies = await getMovies()}}><i class="fa-solid fa-photo-film"></i>Todos</button>
                 <button class={Movies.value === 'Recientes' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Recientes'; store.movies = await getRecents()}}><i class="fa-solid fa-video"></i>Películas Recientes</button>
                 <button class={Movies.value === 'Antiguas' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Antiguas'; store.movies = await getOlds()}}><i class="fa-solid fa-film"></i>Películas Antiguas</button>
-                <button class={Movies.value === 'Oscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Oscars'; store.movies = await getOscars()}}><i class="fa-solid fa-video"></i>Películas con más oscars</button>
-                <button class={Movies.value === 'MenosOscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'MenosOscars'; store.movies = await getLessOscars()}}><i class="fa-solid fa-film"></i>Películas con menos oscars</button>
+                <button class={Movies.value === 'Oscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Oscars'; store.movies = await getOscars()}}><i class="fa-solid fa-trophy"></i>Películas con más oscars</button>
+                <button class={Movies.value === 'MenosOscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'MenosOscars'; store.movies = await getLessOscars()}}><i class="fa-solid fa-award"></i>Películas con menos oscars</button>
             </div>
         </div>
     )
