@@ -1,2 +1,3 @@
 # crud-popfilm
-![popfilm](https://github.com/VanesaAbromaviciute/crud-popfilm/assets/157164684/f916920b-e601-4a13-8f13-3670e229ec5d)
+
+![Captura](https://github.com/VanesaAbromaviciute/crud-popfilm/assets/157164684/a10d734c-bd3f-43e8-b35f-a93a91cb14c2)
