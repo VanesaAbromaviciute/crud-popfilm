@@ -1,6 +1,6 @@
 import { component$, useStore, useVisibleTask$, $, useSignal } from '@builder.io/qwik';
 import { Movies } from '~/models/movies';
-import { addMovie, deleteMovie, getMovies, getOlds, getRecents, updateMovie } from '~/utils/users-provider';
+import { addMovie, deleteMovie, getLessOscars, getMovies, getOlds, getOscars, getRecents, updateMovie } from '~/utils/users-provider';
 
 export const UsersList = component$(() => {
 
@@ -12,7 +12,7 @@ export const UsersList = component$(() => {
         movie: '',
         duration: '',
         director: '',
-        oscar: '',
+        oscar: 0,
         genre: '',
         release_date: ''
     })
@@ -21,7 +21,7 @@ export const UsersList = component$(() => {
 
     const oldName = useSignal("")
 
-    const UserByAge = useSignal("Todos")
+    const Movies = useSignal("Todos")
 
     useVisibleTask$(async () => {
         console.log("Desde useVisibleTask")
@@ -57,7 +57,7 @@ export const UsersList = component$(() => {
         form.movie = ""
         form.duration = ""
         form.director = ""
-        form.oscar = ""
+        form.oscar = 0
         form.genre = ""
         form.release_date = ""
 
@@ -132,9 +132,11 @@ export const UsersList = component$(() => {
                         </tbody>
                     </table>
                 </div >
-                <button class={UserByAge.value === 'Todos' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { UserByAge.value = 'Todos'; store.movies = await getMovies()}}><i class="fa-solid fa-photo-film"></i>Todos</button>
-                <button class={UserByAge.value === 'Recientes' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { UserByAge.value = 'Recientes'; store.movies = await getRecents()}}><i class="fa-solid fa-video"></i>Películas Recientes</button>
-                <button class={UserByAge.value === 'Antiguas' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { UserByAge.value = 'Antiguas'; store.movies = await getOlds()}}><i class="fa-solid fa-film"></i>Películas Antiguas</button>
+                <button class={Movies.value === 'Todos' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Todos'; store.movies = await getMovies()}}><i class="fa-solid fa-photo-film"></i>Todos</button>
+                <button class={Movies.value === 'Recientes' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Recientes'; store.movies = await getRecents()}}><i class="fa-solid fa-video"></i>Películas Recientes</button>
+                <button class={Movies.value === 'Antiguas' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Antiguas'; store.movies = await getOlds()}}><i class="fa-solid fa-film"></i>Películas Antiguas</button>
+                <button class={Movies.value === 'Oscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'Oscars'; store.movies = await getOscars()}}><i class="fa-solid fa-video"></i>Películas con más oscars</button>
+                <button class={Movies.value === 'MenosOscars' ? 'button-age-hightlighted' : 'button-age'} onClick$={async () => { Movies.value = 'MenosOscars'; store.movies = await getLessOscars()}}><i class="fa-solid fa-film"></i>Películas con menos oscars</button>
             </div>
         </div>
     )

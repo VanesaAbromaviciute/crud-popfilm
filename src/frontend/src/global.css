@@ -32,11 +32,11 @@
     }
 
     .button-age {
-        @apply w-52 mt-4 mr-3 bg-purple-600
+        @apply w-60 mt-4 mr-3 bg-purple-600
     }
 
     .button-age-hightlighted {
-        @apply w-52 mt-4 mr-3 bg-purple-400
+        @apply w-60 mt-4 mr-3 bg-purple-400
     }
 
     .image {

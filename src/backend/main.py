@@ -22,7 +22,7 @@ class Movies(BaseModel):
     movie: str
     duration: str
     director: str
-    oscar: str
+    oscar: int
     genre: str
     release_date: date
 
@@ -46,6 +46,33 @@ MONGODB_URL = "mongodb://admin:123@mongodb:27017/?authSource=admin"
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGODB_URL)
 db = client.poppopfilm
+
+# Endpoint para listar todas las películas con más de 5 oscars
+@app.get("/movies/oscars/", response_description="Obtiene las películas con más de 5 oscars",  response_model=List[Movies])
+async def list_oscars():
+    pipeline = [
+        {
+            "$match": {
+                "oscar": {"$gte": 5}
+            }
+        }
+    ]
+    oscars = await db["movies"].aggregate(pipeline).to_list(1000)
+    return oscars
+
+# Endpoint para listar todas las películas con menos de 5 oscars
+@app.get("/movies/lessOscars/", response_description="Obtiene las películas con menos de 5 oscars",  response_model=List[Movies])
+async def list_lessOscars():
+    pipeline = [
+        {
+            "$match": {
+                "oscar": {"$lt": 5}
+            }
+        }
+    ]
+    lessOscars = await db["movies"].aggregate(pipeline).to_list(1000)
+    return lessOscars
+
 
 # Endpoint para listar todas las películas.
 @app.get("/movies/", response_description="Lista todas las películas", response_model=List[Movies])
@@ -143,3 +170,4 @@ async def list_olds():
     ]
     olds = await db["movies"].aggregate(pipeline).to_list(1000)
     return olds
+

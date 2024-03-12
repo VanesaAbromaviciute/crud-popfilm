@@ -84,3 +84,28 @@ export const getOlds = async (): Promise<Movies[]> => {
     }
     return <Movies[]><unknown>null
 }
+
+// Obtiene todas las películas con más de 5 oscars
+export const getOscars = async (): Promise<Movies[]> => {
+    try {
+        const response = await fetch('http://localhost:8000/movies/oscars/')
+        const recents = response.json()
+        return recents
+    } catch (error) {
+        console.error(error)
+    }
+    return <Movies[]><unknown>null
+}
+
+// Obtiene todas las películas con más de 5 oscars
+export const getLessOscars = async (): Promise<Movies[]> => {
+    try {
+        const response = await fetch('http://localhost:8000/movies/lessOscars/')
+        const recents = response.json()
+        return recents
+    } catch (error) {
+        console.error(error)
+    }
+    return <Movies[]><unknown>null
+}
+
